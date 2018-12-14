@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 
-const BurgerItem = (props) => {
+class BurgerItem extends Component {
+  render() {
   return (
     <div>
       <div className="BurgerItem">
-        { /* Name of Burger Here */ }
+        { this.props.burger.name }
       </div>
       <div className="BurgerBottomBun">
-        <button onClick={console.log}>Show</button>
-        <button onClick={console.log}>Delete</button>
+        <button onClick={() => this.props.onBurgerSelect(this.props.burger)}>Show</button>
+        <button onClick={() => this.props.deleteThisGuy(this.props.burger)}>Delete</button>
       </div>
     </div>
-  )
+  )}
 }
 
 export default BurgerItem
